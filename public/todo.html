@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>待办记事</title>
+		<link rel="stylesheet" href="css/todo.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	</head>
+	<body id="todo" onload="">
+		<div id="todoapp">
+			<header>
+				<h1 id="todo_list">Todo 工具</h1>
+				<input id="new-todo" type="text" placeholder="添加待完成事项?" />
+			</header>
+			<section id="main">
+				<input id="toggle-all" type="checkbox">
+				<label for="toggle-all">全部标记为完成</label>
+				<ul id="todo-list"></ul>
+			</section>
+			<footer>
+				<a id="clear-completed">移除已完成的任务</a>
+				<div id="todo-count"></div>
+			</footer>
+		</div>
+	  <div id="instructions">
+	    双击编辑
+	  </div>
+  
+	  <div id="credits">
+		  You want know me ? <a href="witcheryne.iteye.com">lvjian</a>
+	  </div>
+	  
+		
+		<script src="js/libs/json2.js"></script>
+		<script src="js/libs/jquery-1.7.1.js"></script>
+		<script src="js/libs/underscore-1.3.1.js"></script>
+		<script src="js/libs/backbone.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/libs/backbone-localstorage.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/todo.js" type="text/javascript" charset="utf-8"></script>
+		
+		<!-- todo item template -->
+		<script type="text/template" id="item-template">
+		    <div class="view">
+		      <input class="toggle" type="checkbox" <%= done ? 'checked="checked"' : '' %> />
+		      <label><%= title %></label>
+		      <a class="destroy"></a>
+		    </div>
+		    <input class="edit" type="text" value="<%= title %>" />			
+		</script>
+		
+		<script type="text/template" id="stats-template">
+		    <% if (done) { %>
+		      <a id="clear-completed">清除 <%= done %> 个完成的任务</a>
+		    <% } %>
+		    <div class="todo-count">还剩<b><%= remaining %></b> 个任务</div>
+		  </script>
+	</body>
+</html>

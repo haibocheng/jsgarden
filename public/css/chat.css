@@ -1,0 +1,42 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+	line-height: 1.4em;
+	background: #eeeeee;
+	color: #333333;
+	width: 520px;
+	margin: 0 auto;
+	-webkit-font-smoothing: antialiased;
+}
+
+
+#messageBox {
+	height: 320px;
+	width: 100%;
+	overflow: auto;
+	border: solid 2px #444;
+	padding: 12px 0px;
+}
+
+p.message-item {
+	padding: 2px;
+	margin: 0px;
+	border-bottom: solid 1px #ccc;
+}
+
+#box {
+	font-size: 20px;
+	padding: 5px;
+	width: 420px;
+}
+
+#title {
+	text-align: center;
+	color: #666;
+	padding: 5px;
+}

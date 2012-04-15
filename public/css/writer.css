@@ -1,0 +1,58 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	padding: 40px;
+	font: 14px "Lucida Grande", verdana, arial, helvetica, sans-serif;
+	line-height: 1.4em;
+	background: #eee;
+	color: #333333;
+	width: 770px;
+	margin: 0 auto;
+	-webkit-font-smoothing: antialiased;
+}
+
+h1 {
+	text-align: center;
+}
+
+.post {
+	font-size: 14px;
+}
+
+.post .title, input.title {
+	font-size: 20px;
+	padding: 5px;
+}
+
+.post .body {
+	padding: 5px;
+}
+
+input.title {
+	width: 340px;
+}
+
+h3.title {
+	margin: 0px;
+}
+
+.view form.writer {
+	display: none;
+} 
+
+.view .post {
+	display: block;
+}
+
+.editing .post {
+	display: none;
+}
+
+.editing form.writer {
+	display: block;
+}
+

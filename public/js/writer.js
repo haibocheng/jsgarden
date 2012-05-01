@@ -15,13 +15,15 @@ $(function() {
 			};
 		},
 		initialize: function() {
-			if(!this.get('dateCreated')) {
-				var date = this.defaults.dateCreated;
-				this.set({"dateCreated": date});
-			}
 		},
 		toggle: function(p) {
 			this.save(p);
+		},
+		//TODO add validate to post
+		validate: function(attrs) {
+			if (attrs.title.length < 4) {
+				return "The title should have more than 4 characters."
+			};
 		}
 	});
 
@@ -37,6 +39,7 @@ $(function() {
 
 		initialize: function() {
 			this.model.bind('change', this.render, this);		
+			this.model.bind('error', this.showErrors, this);
 		},
 		render: function() {
 			this.$el.html(this.template(this.model.toJSON()));
@@ -48,8 +51,7 @@ $(function() {
 			return this;
 		},
 
-		toggleDone: function() {
-			this.$el.removeClass("editing").addClass('view');
+		toggleDone: function() {			
 
 			this.model.toggle({
 				title: this.inputTitle.val(),
@@ -57,10 +59,17 @@ $(function() {
 				tags: this.inputTags.val(),
 				date: new Date()
 			});
+
+			if(this.model.isValid()) {
+				this.$el.removeClass("editing").addClass('view');	
+			}			
 		},
 		edit: function() {
 			this.$el.removeClass("view").addClass('editing');
 			this.inputBody.focus();
+		},
+		showErrors: function(model, error) {
+			alert(error);
 		}
 	});
 

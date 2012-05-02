@@ -4,6 +4,7 @@
  */
 
 var express = require('express')
+  , Resource = require('express-resource')
   , routes = require('./routes');
 
 var app = module.exports = express.createServer();
@@ -29,7 +30,9 @@ app.configure('production', function(){
 
 // Routes
 
-app.get('/', routes.index);
+app.get('/', routes.home);
+
+app.resource('users', require('./routes'));
 
 var io = require('socket.io').listen(app);
 

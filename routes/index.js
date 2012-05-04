@@ -18,6 +18,7 @@ exports.new = function(req, res){
   res.send('new forum');
 };
 
+// http://localhost:3000/users
 exports.create = function(req, res){
   console.log("post create method");
 };
